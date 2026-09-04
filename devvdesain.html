@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DevvDesain — Jasa Desain Canva Profesional</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1C2333;
+    --ink-soft:#3A4256;
+    --paper:#EFEDE4;
+    --paper-card:#FBFAF5;
+    --line:#D9D4C4;
+    --gold:#B8842E;
+    --gold-deep:#8F6420;
+    --teal:#3F6357;
+    --teal-deep:#2E4A41;
+    --white:#FFFFFF;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Manrope', sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.serif{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    color:var(--ink);
+  }
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1140px; margin:0 auto; padding:0 28px;}
+  ::selection{background:var(--gold); color:var(--white);}
+  :focus-visible{outline:2px solid var(--teal); outline-offset:3px;}
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(239,237,228,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 0;
+  }
+  .logo{
+    font-family:'Fraunces', serif;
+    font-size:1.35rem;
+    font-weight:700;
+    display:flex; align-items:center; gap:8px;
+  }
+  .logo .mark{
+    width:11px; height:11px; background:var(--gold); border-radius:2px;
+    transform:rotate(45deg);
+    display:inline-block;
+  }
+  nav.links{display:flex; gap:34px; font-size:0.95rem; font-weight:600;}
+  nav.links a{position:relative; padding:4px 0; color:var(--ink-soft);}
+  nav.links a:hover{color:var(--ink);}
+  nav.links a::after{
+    content:''; position:absolute; left:0; bottom:0; width:0; height:2px;
+    background:var(--gold); transition:width .25s ease;
+  }
+  nav.links a:hover::after{width:100%;}
+  .nav-phone{
+    display:flex; align-items:center; gap:8px;
+    font-weight:700; font-size:0.92rem;
+    border:1px solid var(--ink); border-radius:40px;
+    padding:8px 16px;
+  }
+  .nav-phone:hover{background:var(--ink); color:var(--paper-card);}
+  .burger{display:none;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding:88px 0 96px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero .wrap{
+    display:grid;
+    grid-template-columns:1.05fr 0.95fr;
+    gap:56px;
+    align-items:center;
+  }
+  .eyebrow-plain{
+    font-size:0.95rem; font-weight:700; color:var(--teal-deep);
+    margin-bottom:18px;
+  }
+  .hero h1{
+    font-size:3.4rem;
+    line-height:1.08;
+    max-width:11ch;
+  }
+  .hero h1 em{font-style:italic; color:var(--gold-deep); font-weight:600;}
+  .hero p.lead{
+    margin-top:22px;
+    font-size:1.12rem;
+    color:var(--ink-soft);
+    max-width:46ch;
+  }
+  .hero-cta{
+    display:flex; gap:14px; margin-top:34px; flex-wrap:wrap;
+  }
+  .btn{
+    display:inline-flex; align-items:center; gap:9px;
+    padding:14px 26px;
+    border-radius:6px;
+    font-weight:700;
+    font-size:0.98rem;
+    border:1px solid transparent;
+    cursor:pointer;
+    transition:transform .18s ease, background .18s ease, box-shadow .18s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--teal); color:var(--white);}
+  .btn-primary:hover{background:var(--teal-deep);}
+  .btn-outline{border-color:var(--ink); color:var(--ink);}
+  .btn-outline:hover{background:var(--ink); color:var(--paper-card);}
+
+  .hero-stack{position:relative; height:420px;}
+  .doc-card{
+    position:absolute;
+    background:var(--paper-card);
+    border:1px solid var(--line);
+    border-radius:4px;
+    box-shadow:0 18px 40px -18px rgba(28,35,51,0.35);
+    padding:18px 20px;
+    width:230px;
+  }
+  .doc-card .tag{
+    font-size:0.72rem; font-weight:800; letter-spacing:.03em;
+    color:var(--gold-deep); margin-bottom:10px;
+  }
+  .doc-card .ln{height:8px; background:var(--line); border-radius:2px; margin-bottom:8px;}
+  .doc-card .ln.w60{width:60%;}
+  .doc-card .ln.w80{width:80%;}
+  .doc-card .ln.w40{width:40%;}
+  .doc-card.c1{top:6%; left:2%; transform:rotate(-7deg); z-index:3;}
+  .doc-card.c2{top:32%; left:34%; transform:rotate(4deg); z-index:2; width:250px;}
+  .doc-card.c3{top:58%; left:8%; transform:rotate(-3deg); z-index:1; width:210px;}
+  .doc-card.poster{
+    background:var(--ink); color:var(--paper-card); width:170px; height:220px;
+    top:2%; right:0; transform:rotate(6deg);
+    display:flex; flex-direction:column; justify-content:flex-end;
+    padding:16px;
+  }
+  .doc-card.poster .tag{color:var(--gold);}
+  .doc-card.poster .ln{background:rgba(251,250,245,0.25);}
+
+  /* ---------- Section shell ---------- */
+  section{padding:88px 0;}
+  .section-head{
+    display:flex; justify-content:space-between; align-items:flex-end;
+    gap:40px; margin-bottom:48px; flex-wrap:wrap;
+  }
+  .section-head h2{font-size:2.15rem; max-width:16ch;}
+  .section-head p{color:var(--ink-soft); max-width:34ch; font-size:1rem;}
+
+  /* ---------- Services ---------- */
+  .services{background:#E2E8E3; border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .services .section-head p{color:var(--teal-deep);}
+  .service-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:0;
+    border-top:1px solid #C9D3C9;
+    border-left:1px solid #C9D3C9;
+  }
+  .service-item{
+    background:var(--paper-card);
+    border-right:1px solid #C9D3C9;
+    border-bottom:1px solid #C9D3C9;
+    padding:32px 28px;
+    transition:background .2s ease;
+  }
+  .service-item:hover{background:#F1F4EF;}
+  .service-item .glyph{
+    width:38px; height:38px;
+    border:1.5px solid var(--teal-deep);
+    color:var(--teal-deep);
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Fraunces',serif; font-weight:600; font-size:1.05rem;
+    margin-bottom:18px;
+  }
+  .service-item h3{font-size:1.15rem; margin-bottom:8px; font-weight:600;}
+  .service-item p{font-size:0.92rem; color:var(--ink-soft); margin-bottom:14px;}
+  .service-item .price{
+    font-size:0.85rem; font-weight:700; color:var(--gold-deep);
+  }
+
+  /* ---------- Process ---------- */
+  .process-list{
+    display:flex; flex-direction:column;
+  }
+  .process-row{
+    display:grid;
+    grid-template-columns:70px 1fr 1.4fr;
+    gap:24px;
+    padding:26px 0;
+    border-bottom:1px solid var(--line);
+    align-items:baseline;
+  }
+  .process-row:first-child{border-top:1px solid var(--line);}
+  .process-num{
+    font-family:'Fraunces',serif; font-size:1.4rem; color:var(--gold-deep); font-weight:600;
+  }
+  .process-row h3{font-size:1.2rem; font-weight:600;}
+  .process-row p{color:var(--ink-soft); font-size:0.96rem; max-width:52ch;}
+
+  /* ---------- Why ---------- */
+  .why-wrap{
+    background:var(--ink);
+    color:var(--paper-card);
+  }
+  .why-wrap .section-head h2, .why-wrap .section-head p{color:var(--paper-card);}
+  .why-wrap .section-head p{opacity:.75;}
+  .why-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:36px;
+  }
+  .why-card h3{color:var(--paper-card); font-size:1.1rem; margin-bottom:10px;}
+  .why-card .num{color:var(--gold); font-family:'Fraunces',serif; font-size:1.6rem; margin-bottom:14px; display:block;}
+  .why-card p{opacity:.72; font-size:0.94rem;}
+
+  /* ---------- Pricing note ---------- */
+  .price-note{
+    background:var(--paper-card);
+    border:1px solid #C9D3C9;
+    border-radius:8px;
+    padding:26px 30px;
+    font-size:0.92rem;
+    color:var(--ink-soft);
+    margin-top:14px;
+  }
+
+  /* ---------- Contact ---------- */
+  .contact{background:var(--paper-card); border-top:1px solid var(--line);}
+  .contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:56px;
+    align-items:start;
+  }
+  .contact h2{font-size:2.3rem; max-width:12ch; margin-bottom:18px;}
+  .contact p.lead{color:var(--ink-soft); max-width:42ch; margin-bottom:30px;}
+  .contact-methods{display:flex; flex-direction:column; gap:0;}
+  .cmethod{
+    display:flex; align-items:center; gap:18px;
+    padding:20px 0;
+    border-top:1px solid var(--line);
+  }
+  .contact-methods .cmethod:last-child{border-bottom:1px solid var(--line);}
+  .cmethod .ic{
+    width:44px; height:44px; border-radius:50%;
+    background:var(--paper);
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .cmethod .label{font-size:0.78rem; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-soft); font-weight:700;}
+  .cmethod .value{font-size:1.08rem; font-weight:700;}
+  .cmethod:hover .value{color:var(--teal-deep);}
+
+  .hours-card{
+    background:var(--ink); color:var(--paper-card);
+    border-radius:10px; padding:34px;
+  }
+  .hours-card h3{color:var(--paper-card); font-size:1.2rem; margin-bottom:18px;}
+  .hours-row{display:flex; justify-content:space-between; padding:10px 0; border-top:1px solid rgba(251,250,245,0.15); font-size:0.94rem;}
+  .hours-row:last-of-type{border-bottom:1px solid rgba(251,250,245,0.15);}
+  .hours-card .cta{margin-top:24px;}
+
+  /* ---------- Footer ---------- */
+  footer{padding:34px 0; border-top:1px solid var(--line);}
+  footer .wrap{
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px;
+  }
+  footer .fmark{font-size:0.85rem; color:var(--ink-soft);}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 880px){
+    nav.links{display:none;}
+    .hero .wrap{grid-template-columns:1fr;}
+    .hero h1{font-size:2.5rem; max-width:none;}
+    .hero-stack{height:320px; margin-top:20px;}
+    .service-grid{grid-template-columns:repeat(2,1fr);}
+    .why-grid{grid-template-columns:1fr; gap:28px;}
+    .process-row{grid-template-columns:44px 1fr; }
+    .process-row p{grid-column:2/3;}
+    .contact-grid{grid-template-columns:1fr;}
+    .section-head{align-items:flex-start;}
+  }
+  @media (max-width: 560px){
+    .service-grid{grid-template-columns:1fr;}
+    .nav-phone span.txt{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="logo"><span class="mark"></span>DevvDesain</div>
+    <nav class="links">
+      <a href="#layanan">Layanan</a>
+      <a href="#cara-kerja">Cara Kerja</a>
+      <a href="#kenapa">Kenapa Kami</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+    <a class="nav-phone" href="tel:+6287730111466">
+      <span>☎</span><span class="txt">0877-3011-1466</span>
+    </a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow-plain">Jasa desain berbasis Canva</p>
+      <h1>Desain rapi, <em>tepat waktu</em>, tanpa ribet</h1>
+      <p class="lead">DevvDesain membantu kamu menyelesaikan CV, surat, poster usaha, undangan, kartu pelajar, sampai presentasi — dikerjakan langsung lewat Canva, siap pakai atau siap cetak.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="https://wa.me/6287730111466?text=Halo%20DevvDesain%2C%20saya%20mau%20tanya%20tentang%20jasa%20desain" target="_blank" rel="noopener">
+          Chat via WhatsApp
+        </a>
+        <a class="btn btn-outline" href="#layanan">Lihat Layanan</a>
+      </div>
+    </div>
+    <div class="hero-stack" aria-hidden="true">
+      <div class="doc-card c1">
+        <div class="tag">CV</div>
+        <div class="ln w80"></div>
+        <div class="ln w60"></div>
+        <div class="ln w40"></div>
+      </div>
+      <div class="doc-card poster">
+        <div class="tag">POSTER</div>
+        <div class="ln w60"></div>
+        <div class="ln w40"></div>
+      </div>
+      <div class="doc-card c2">
+        <div class="tag">UNDANGAN</div>
+        <div class="ln w80"></div>
+        <div class="ln w60"></div>
+      </div>
+      <div class="doc-card c3">
+        <div class="tag">PPT</div>
+        <div class="ln w60"></div>
+        <div class="ln w40"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="layanan">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Layanan yang tersedia</h2>
+      <p>Semua dikerjakan di Canva, hasil bisa file PDF, JPG, PNG, atau link edit — sesuai kebutuhan kamu.</p>
+    </div>
+    <div class="service-grid">
+
+      <div class="service-item">
+        <div class="glyph">Cv</div>
+        <h3>Desain CV / Resume</h3>
+        <p>Layout rapi, mudah dibaca HRD, tersedia versi ATS-friendly.</p>
+        <div class="price">Mulai Rp 25.000</div>
+      </div>
+
+      <div class="service-item">
+        <div class="glyph">Ss</div>
+        <h3>Surat Resmi</h3>
+        <p>Surat lamaran, surat dinas, surat pengantar, dan sejenisnya.</p>
+        <div class="price">Mulai Rp 20.000</div>
+      </div>
+
+      <div class="service-item">
+        <div class="glyph">Pp</div>
+        <h3>Poster Usaha</h3>
+        <p>Poster promosi, banner jualan, konten feed & story usaha kamu.</p>
+        <div class="price">Mulai Rp 30.000</div>
+      </div>
+
+      <div class="service-item">
+        <div class="glyph">Un</div>
+        <h3>Undangan Digital</h3>
+        <p>Undangan pernikahan, ulang tahun, dan acara lain — cetak atau digital.</p>
+        <div class="price">Mulai Rp 35.000</div>
+      </div>
+
+      <div class="service-item">
+        <div class="glyph">Kp</div>
+        <h3>Kartu Pelajar / ID Card</h3>
+        <p>Desain kartu identitas sekolah, komunitas, atau organisasi.</p>
+        <div class="price">Mulai Rp 20.000</div>
+      </div>
+
+      <div class="service-item">
+        <div class="glyph">Pt</div>
+        <h3>Presentasi (PPT)</h3>
+        <p>Slide presentasi tugas, proposal, atau pitching — rapi dan enak dilihat.</p>
+        <div class="price">Mulai Rp 50.000 / paket</div>
+      </div>
+
+    </div>
+    <div class="price-note">
+      Harga di atas adalah estimasi awal berdasarkan tingkat kerumitan desain standar. Harga final akan disesuaikan setelah brief dan referensi dari kamu diterima — chat dulu ya untuk penawaran pasti.
+    </div>
+  </div>
+</section>
+
+<section id="cara-kerja">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Cara kerjanya</h2>
+      <p>Empat langkah sederhana dari chat pertama sampai file di tangan kamu.</p>
+    </div>
+    <div class="process-list">
+      <div class="process-row">
+        <div class="process-num">1</div>
+        <h3>Kirim Brief</h3>
+        <p>Chat via WhatsApp atau email, ceritakan kebutuhan desain, referensi, dan tenggat waktu kamu.</p>
+      </div>
+      <div class="process-row">
+        <div class="process-num">2</div>
+        <h3>Penawaran & Konfirmasi</h3>
+        <p>Kamu terima estimasi harga dan waktu pengerjaan, lalu konfirmasi untuk lanjut.</p>
+      </div>
+      <div class="process-row">
+        <div class="process-num">3</div>
+        <h3>Proses Desain</h3>
+        <p>Desain dikerjakan di Canva, draft dikirim untuk kamu cek dan revisi bila perlu.</p>
+      </div>
+      <div class="process-row">
+        <div class="process-num">4</div>
+        <h3>File Selesai</h3>
+        <p>File final dikirim dalam format sesuai kebutuhan — siap pakai atau siap cetak.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why-wrap" id="kenapa">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Kenapa pakai DevvDesain</h2>
+      <p>Fokus pada tiga hal: cepat, rapi, dan komunikasi yang jelas.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <span class="num">01</span>
+        <h3>Respon Cepat</h3>
+        <p>Chat dibalas cepat lewat WhatsApp, jadi kamu nggak perlu menunggu lama untuk mulai order.</p>
+      </div>
+      <div class="why-card">
+        <span class="num">02</span>
+        <h3>Revisi Wajar</h3>
+        <p>Ada kesempatan revisi supaya hasil akhir benar-benar sesuai kebutuhan kamu.</p>
+      </div>
+      <div class="why-card">
+        <span class="num">03</span>
+        <h3>Harga Transparan</h3>
+        <p>Estimasi harga disampaikan di awal sebelum pengerjaan dimulai, tanpa biaya tersembunyi.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="kontak">
+  <div class="wrap contact-grid">
+    <div>
+      <h2>Yuk mulai desainmu</h2>
+      <p class="lead">Kirim kebutuhan desain kamu, atau langsung hubungi lewat salah satu kontak di bawah ini.</p>
+      <div class="contact-methods">
+        <a class="cmethod" href="https://wa.me/6287730111466" target="_blank" rel="noopener">
+          <div class="ic">💬</div>
+          <div>
+            <div class="label">WhatsApp</div>
+            <div class="value">0877-3011-1466</div>
+          </div>
+        </a>
+        <a class="cmethod" href="tel:+6287730111466">
+          <div class="ic">☎</div>
+          <div>
+            <div class="label">Telepon</div>
+            <div class="value">0877-3011-1466</div>
+          </div>
+        </a>
+        <a class="cmethod" href="mailto:DevveditID@gmail.com">
+          <div class="ic">✉</div>
+          <div>
+            <div class="label">Email</div>
+            <div class="value">DevveditID@gmail.com</div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="hours-card">
+      <h3>Jam Layanan</h3>
+      <div class="hours-row"><span>Senin – Jumat</span><span>09.00 – 21.00</span></div>
+      <div class="hours-row"><span>Sabtu – Minggu</span><span>10.00 – 20.00</span></div>
+      <div class="hours-row"><span>Waktu pengerjaan</span><span>1 – 3 hari</span></div>
+      <a class="btn btn-primary cta" href="https://wa.me/6287730111466?text=Halo%20DevvDesain%2C%20saya%20mau%20order%20desain" target="_blank" rel="noopener">
+        Pesan Sekarang
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="logo"><span class="mark"></span>DevvDesain</div>
+    <div class="fmark">© 2026 DevvDesain. Jasa desain Canva profesional.</div>
+  </div>
+</footer>
+
+</body>
+</html>
